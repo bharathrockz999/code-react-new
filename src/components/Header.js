@@ -71,7 +71,7 @@ class Header extends Component {
                                 <ul className="nav navbar-nav collapsed-color">
 
                                     <li>
-                                        <a href="#">Home</a>
+                                        <a href="/Home">Home</a>
                                     </li>
 
                                     <li>

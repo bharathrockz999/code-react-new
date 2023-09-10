@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import '../src/components/css/style.css'
 import Header from '../src/components/Header'
-
+import Home from '../src/components/Home'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
 class App extends Component {
@@ -9,14 +10,21 @@ class App extends Component {
   render() {
 
     return (
-      <div className="App">
-        <Header />
-
-        <div style={{"margin-top":"200px"}}>
-          <h1>This can be whatever page or Component you want</h1>
-          <h4>Demo Paragarph content</h4>
-        </div>
-      </div>
+   <>
+        {/* <Header /> */}
+        <BrowserRouter >
+        <Header/>
+        <Routes>
+         
+        <Route path="/" element={<Home />}>
+          <Route index element={<Home />} />
+       
+      
+          </Route>
+        </Routes>
+        </BrowserRouter >
+    
+        </>
     );
   }
 }
