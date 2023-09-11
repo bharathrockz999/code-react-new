@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import author from './assets/author.png'
+
 const Home = () => {
   const [posts, setPosts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -62,6 +63,14 @@ const Home = () => {
     }
     return text;
   };
+  const limitLetters = (text, limit) => {
+    
+    if (text.length > limit) {
+      text = text.substring(0, limit);
+      text = text + ' ...'
+    }
+    return text;
+  };
   const filteredPosts = posts.filter((post) =>
     post.sub.toLowerCase().includes(searchQuery.toLowerCase()) ||
     post.desc.toLowerCase().includes(searchQuery.toLowerCase())
@@ -71,16 +80,16 @@ const Home = () => {
       <div class="row">
         {filteredPosts.map((post) => (
 
-          <div class="col-sm-6 col-md-12">
+          <div class="col-sm-6 col-md-6">
             <div class="thumbnail" key={post.id}>
-              
-              
+                         
               <div class="caption">
               {/* <img src={author} alt="author" width={50} height={50}/> */}
-                <h3>{limitWords(post.sub, 15)}</h3>
-                <p>{limitWords(post.desc, 10)}</p>
+                <h3>{limitLetters(post.sub, 40)}</h3>
+                <p>{limitLetters(post.desc, 40)}</p>
+               
                 {/* <a href="#"><span class="badge">Technology</span></a> */}
-                <p style={{position:'relative'}}><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                <p style={{position:'relative'}}><a href="#" class="btn btn-primary" role="button">Read More</a></p>
               </div>
             </div>
           </div>
