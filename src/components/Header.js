@@ -37,7 +37,6 @@ class Header extends Component {
     render() {
         const { login, sign } = this.state;
         return (
-
             <>
                 <header className="header header-animated opaque" style={{ "display": 'block', "paddingTop": "5px", "paddingBottom": "5px" }}>
                     <div className="container">

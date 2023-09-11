@@ -1,317 +1,93 @@
+import React, { useState, useEffect } from 'react';
+import author from './assets/author.png'
 const Home = () => {
-    return (<div class="container-fluid" style={{marginTop: '90px'}} >
-    <div class="row">
-    <div class="col-sm-6 col-md-6">
-      <div class="thumbnail">
-        <img src="..." alt="..." />
-        <div class="caption">
-          <h3>Thumbnail label</h3>
-          <p>...</p>
-          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 col-md-6">
-      <div class="thumbnail">
-        <img src="..." alt="..." />
-        <div class="caption">
-          <h3>Thumbnail label</h3>
-          <p>...</p>
-          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 col-md-6">
-      <div class="thumbnail">
-        <img src="..." alt="..." />
-        <div class="caption">
-          <h3>Thumbnail label</h3>
-          <p>...</p>
-          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-        </div>
-      </div>
-    </div> <div class="col-sm-6 col-md-6">
-      <div class="thumbnail">
-        <img src="..." alt="..." />
-        <div class="caption">
-          <h3>Thumbnail label</h3>
-          <p>...</p>
-          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-        </div>
-      </div>
-    </div> <div class="col-sm-6 col-md-6">
-      <div class="thumbnail">
-        <img src="..." alt="..." />
-        <div class="caption">
-          <h3>Thumbnail label</h3>
-          <p>...</p>
-          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-        </div>
-      </div>
-    </div> <div class="col-sm-6 col-md-6">
-      <div class="thumbnail">
-        <img src="..." alt="..." />
-        <div class="caption">
-          <h3>Thumbnail label</h3>
-          <p>...</p>
-          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-        </div>
-      </div>
-    </div> <div class="col-sm-6 col-md-6">
-      <div class="thumbnail">
-        <img src="..." alt="..." />
-        <div class="caption">
-          <h3>Thumbnail label</h3>
-          <p>...</p>
-          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-        </div>
-      </div>
-    </div> <div class="col-sm-6 col-md-6">
-      <div class="thumbnail">
-        <img src="..." alt="..." />
-        <div class="caption">
-          <h3>Thumbnail label</h3>
-          <p>...</p>
-          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-        </div>
-      </div>
-    </div> <div class="col-sm-6 col-md-6">
-      <div class="thumbnail">
-        <img src="..." alt="..." />
-        <div class="caption">
-          <h3>Thumbnail label</h3>
-          <p>...</p>
-          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-        </div>
-      </div>
-    </div> <div class="col-sm-6 col-md-6">
-      <div class="thumbnail">
-        <img src="..." alt="..." />
-        <div class="caption">
-          <h3>Thumbnail label</h3>
-          <p>...</p>
-          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-        </div>
-      </div>
-    </div> <div class="col-sm-6 col-md-6">
-      <div class="thumbnail">
-        <img src="..." alt="..." />
-        <div class="caption">
-          <h3>Thumbnail label</h3>
-          <p>...</p>
-          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-        </div>
-      </div>
-    </div> <div class="col-sm-6 col-md-6">
-      <div class="thumbnail">
-        <img src="..." alt="..." />
-        <div class="caption">
-          <h3>Thumbnail label</h3>
-          <p>...</p>
-          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-        </div>
-      </div>
-    </div> <div class="col-sm-6 col-md-6">
-      <div class="thumbnail">
-        <img src="..." alt="..." />
-        <div class="caption">
-          <h3>Thumbnail label</h3>
-          <p>...</p>
-          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-        </div>
-      </div>
-    </div> <div class="col-sm-6 col-md-6">
-      <div class="thumbnail">
-        <img src="..." alt="..." />
-        <div class="caption">
-          <h3>Thumbnail label</h3>
-          <p>...</p>
-          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-        </div>
-      </div>
-    </div> <div class="col-sm-6 col-md-6">
-      <div class="thumbnail">
-        <img src="..." alt="..." />
-        <div class="caption">
-          <h3>Thumbnail label</h3>
-          <p>...</p>
-          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-        </div>
-      </div>
-    </div> <div class="col-sm-6 col-md-6">
-      <div class="thumbnail">
-        <img src="..." alt="..." />
-        <div class="caption">
-          <h3>Thumbnail label</h3>
-          <p>...</p>
-          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-        </div>
-      </div>
-    </div> <div class="col-sm-6 col-md-6">
-      <div class="thumbnail">
-        <img src="..." alt="..." />
-        <div class="caption">
-          <h3>Thumbnail label</h3>
-          <p>...</p>
-          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-        </div>
-      </div>
-    </div> <div class="col-sm-6 col-md-6">
-      <div class="thumbnail">
-        <img src="..." alt="..." />
-        <div class="caption">
-          <h3>Thumbnail label</h3>
-          <p>...</p>
-          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-        </div>
-      </div>
-    </div> <div class="col-sm-6 col-md-6">
-      <div class="thumbnail">
-        <img src="..." alt="..." />
-        <div class="caption">
-          <h3>Thumbnail label</h3>
-          <p>...</p>
-          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-        </div>
-      </div>
-    </div> <div class="col-sm-6 col-md-6">
-      <div class="thumbnail">
-        <img src="..." alt="..." />
-        <div class="caption">
-          <h3>Thumbnail label</h3>
-          <p>...</p>
-          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-        </div>
-      </div>
-    </div> <div class="col-sm-6 col-md-6">
-      <div class="thumbnail">
-        <img src="..." alt="..." />
-        <div class="caption">
-          <h3>Thumbnail label</h3>
-          <p>...</p>
-          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-        </div>
-      </div>
-    </div> <div class="col-sm-6 col-md-6">
-      <div class="thumbnail">
-        <img src="..." alt="..." />
-        <div class="caption">
-          <h3>Thumbnail label</h3>
-          <p>...</p>
-          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-        </div>
-      </div>
-    </div> <div class="col-sm-6 col-md-6">
-      <div class="thumbnail">
-        <img src="..." alt="..." />
-        <div class="caption">
-          <h3>Thumbnail label</h3>
-          <p>...</p>
-          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-        </div>
-      </div>
-    </div> <div class="col-sm-6 col-md-6">
-      <div class="thumbnail">
-        <img src="..." alt="..." />
-        <div class="caption">
-          <h3>Thumbnail label</h3>
-          <p>...</p>
-          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-        </div>
-      </div>
-    </div> <div class="col-sm-6 col-md-6">
-      <div class="thumbnail">
-        <img src="..." alt="..." />
-        <div class="caption">
-          <h3>Thumbnail label</h3>
-          <p>...</p>
-          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-        </div>
-      </div>
-    </div> <div class="col-sm-6 col-md-6">
-      <div class="thumbnail">
-        <img src="..." alt="..." />
-        <div class="caption">
-          <h3>Thumbnail label</h3>
-          <p>...</p>
-          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-        </div>
-      </div>
-    </div> <div class="col-sm-6 col-md-6">
-      <div class="thumbnail">
-        <img src="..." alt="..." />
-        <div class="caption">
-          <h3>Thumbnail label</h3>
-          <p>...</p>
-          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-        </div>
-      </div>
-    </div> <div class="col-sm-6 col-md-6">
-      <div class="thumbnail">
-        <img src="..." alt="..." />
-        <div class="caption">
-          <h3>Thumbnail label</h3>
-          <p>...</p>
-          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-        </div>
-      </div>
-    </div> <div class="col-sm-6 col-md-6">
-      <div class="thumbnail">
-        <img src="..." alt="..." />
-        <div class="caption">
-          <h3>Thumbnail label</h3>
-          <p>...</p>
-          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-        </div>
-      </div>
-    </div> <div class="col-sm-6 col-md-6">
-      <div class="thumbnail">
-        <img src="..." alt="..." />
-        <div class="caption">
-          <h3>Thumbnail label</h3>
-          <p>...</p>
-          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-        </div>
-      </div>
-    </div> <div class="col-sm-6 col-md-6">
-      <div class="thumbnail">
-        <img src="..." alt="..." />
-        <div class="caption">
-          <h3>Thumbnail label</h3>
-          <p>...</p>
-          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-        </div>
-      </div>
-    </div> <div class="col-sm-6 col-md-6">
-      <div class="thumbnail">
-        <img src="..." alt="..." />
-        <div class="caption">
-          <h3>Thumbnail label</h3>
-          <p>...</p>
-          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-        </div>
-      </div>
-    </div> <div class="col-sm-6 col-md-6">
-      <div class="thumbnail">
-        <img src="..." alt="..." />
-        <div class="caption">
-          <h3>Thumbnail label</h3>
-          <p>...</p>
-          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-        </div>
-      </div>
-    </div> <div class="col-sm-6 col-md-6">
-      <div class="thumbnail">
-        <img src="..." alt="..." />
-        <div class="caption">
-          <h3>Thumbnail label</h3>
-          <p>...</p>
-          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-  </div>);
+  const [posts, setPosts] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [showReadMorePopup, setShowReadMorePopup] = useState(false);
+  const [selectedPost, setSelectedPost] = useState(null);
+
+  const fetchData = async (pageNumber) => {
+    try {
+      const response = await fetch(`/blog/page/get`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          pageNumber: pageNumber - 1,
+          noOfRecords: 6,
+          userName: "all",
+        }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setPosts(data.response);
+        setTotalPages(data.totalPages);
+      } else {
+        console.error('Error fetching data:', response.statusText);
+      }
+    } catch (error) {
+      console.error('An error occurred:', error);
+    }
   };
-  
-  export default Home;
+
+  useEffect(() => {
+    fetchData(currentPage);
+  }, [currentPage]);
+  const prevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const nextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const goToPage = (pageNumber) => {
+    if (pageNumber >= 1 && pageNumber <= totalPages) {
+      setCurrentPage(pageNumber);
+    }
+  };
+
+  const limitWords = (text, limit) => {
+    const words = text.split(' ');
+    if (words.length > limit) {
+      return words.slice(0, limit).join(' ') + '...';
+    }
+    return text;
+  };
+  const filteredPosts = posts.filter((post) =>
+    post.sub.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    post.desc.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+  return (
+    <div class="container-fluid" style={{ marginTop: '90px' }} >
+      <div class="row">
+        {filteredPosts.map((post) => (
+
+          <div class="col-sm-6 col-md-12">
+            <div class="thumbnail" key={post.id}>
+              
+              
+              <div class="caption">
+              {/* <img src={author} alt="author" width={50} height={50}/> */}
+                <h3>{limitWords(post.sub, 15)}</h3>
+                <p>{limitWords(post.desc, 10)}</p>
+                {/* <a href="#"><span class="badge">Technology</span></a> */}
+                <p style={{position:'relative'}}><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+              </div>
+            </div>
+          </div>
+        ))};
+
+      </div>
+    </div>);
+};
+
+export default Home;
