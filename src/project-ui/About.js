@@ -1,5 +1,6 @@
 import React from 'react';
 // import '../css/about.css'
+import '../project-css/about.css'
 import abtimg from '../project-images/nwmsu-admin-image.jpg'
 import d1 from '../project-images/shivani-image.jpg';
 import d2 from '../project-images/ashok-murali-image.jpg';
