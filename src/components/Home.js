@@ -103,8 +103,8 @@ const Home = () => {
         <div class="col-sm-6 col-md-offset-5">
           <nav>
             <ul class="pagination">
-              <li>
-                <a aria-label="Previous" onClick={prevPage} disabled={currentPage == 1}>
+              <li aria-label="Previous" onClick={prevPage} disabled={currentPage == 1}>
+                <a >
                   <span aria-hidden="true">&laquo;</span>
                 </a>
               </li>
@@ -114,7 +114,7 @@ const Home = () => {
                   
               ))} */}
                {pageNumbers.map((pageNumber) => (
-                <li><a key={pageNumber} onClick={() => goToPage(pageNumber )}  href="#"> {pageNumber}</a></li>
+                <li className={currentPage === pageNumber ? 'active' : ''}><a key={pageNumber} onClick={() => goToPage(pageNumber )}  href="#"> {pageNumber}</a></li>
               ))}
               <li>
                 <a aria-label="Next" onClick={nextPage} disabled={currentPage === totalPages}>
