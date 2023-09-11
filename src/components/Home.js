@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import author from './assets/author.png'
 
+
 const Home = () => {
   const [posts, setPosts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -64,7 +65,7 @@ const Home = () => {
     return text;
   };
   const limitLetters = (text, limit) => {
-    
+
     if (text.length > limit) {
       text = text.substring(0, limit);
       text = text + ' ...'
@@ -75,6 +76,9 @@ const Home = () => {
     post.sub.toLowerCase().includes(searchQuery.toLowerCase()) ||
     post.desc.toLowerCase().includes(searchQuery.toLowerCase())
   );
+  const startPage = Math.max(1, currentPage - Math.floor(5 / 2));
+  const endPage = Math.min(totalPages, startPage + 5 - 1);
+  const pageNumbers = Array.from({ length: endPage - startPage + 1 }, (_, index) => startPage + index);
   return (
     <div class="container-fluid" style={{ marginTop: '90px' }} >
       <div class="row">
@@ -82,19 +86,44 @@ const Home = () => {
 
           <div class="col-sm-6 col-md-6">
             <div class="thumbnail" key={post.id}>
-                         
+
               <div class="caption">
-              {/* <img src={author} alt="author" width={50} height={50}/> */}
+                {/* <img src={author} alt="author" width={50} height={50}/> */}
                 <h3>{limitLetters(post.sub, 40)}</h3>
                 <p>{limitLetters(post.desc, 40)}</p>
-               
+
                 {/* <a href="#"><span class="badge">Technology</span></a> */}
-                <p style={{position:'relative'}}><a href="#" class="btn btn-primary" role="button">Read More</a></p>
+                <p style={{ position: 'relative' }}><a href="#" class="btn btn-primary" role="button">Read More</a></p>
               </div>
             </div>
           </div>
-        ))};
-
+        ))}
+      </div >
+      <div class="row">
+        <div class="col-sm-6 col-md-offset-5">
+          <nav>
+            <ul class="pagination">
+              <li>
+                <a aria-label="Previous" onClick={prevPage} disabled={currentPage == 1}>
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+                {/* {Array.from({ length: 5 }, (_, index) => (
+                   index+currentPage <= totalPages &&
+                    <li><a key={index} onClick={() => goToPage(currentPage + 1)} className={currentPage === index + 1 ? 'active' : ''} href="#"> {index + currentPage}</a></li>
+                  
+              ))} */}
+               {pageNumbers.map((pageNumber) => (
+                <li><a key={pageNumber} onClick={() => goToPage(pageNumber )}  href="#"> {pageNumber}</a></li>
+              ))}
+              <li>
+                <a aria-label="Next" onClick={nextPage} disabled={currentPage === totalPages}>
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
       </div>
     </div>);
 };
