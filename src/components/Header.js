@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import Modal from "react-responsive-modal";
 import './css/style.css'
 // import icon from './assets/logo-hover.png'
-import Signup from '../project-ui/signup';
-import Login from '../project-ui/login';
+import Signup from '../project-ui/Signup';
+import Login from '../project-ui/Login';
 import About from '../project-ui/About';
 import logo from '../project-images/nwmsu-logo.png'
 
