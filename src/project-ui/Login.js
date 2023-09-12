@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../components/css/style.css'
-import '../project-css/login.css'
+import '../components/css/style.css';
+import '../project-css/login.css';
 
-
-
-// import API_BASE_URL from './apiConfig';
 const Login = () => {
   const [formData, setFormData] = useState({
     userType: 'Student',
@@ -23,84 +20,177 @@ const Login = () => {
     });
   };
 
+  const [formErrors, setFormErrors] = useState({
+    userType: '',
+    email: '',
+    password: '',
+  });
+
+  const [serverResponse, setServerResponse] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false); // Added state to track form submission
+
+
+  const validateForm = () => {
+    const errors = {
+      userType: '',
+      email: '',
+      password: '',
+    };
+
+    if (formData.userType === '') {
+      errors.userType = 'Please select a User Type.';
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formData.email.match(emailPattern)) {
+      errors.email = 'Please enter a valid email address.';
+    }
+
+    if (formData.password.length < 8) {
+      errors.password = 'Password must be at least 8 characters.';
+    }
+
+    setFormErrors(errors);
+
+    return Object.values(errors).every((error) => error === '');
+  };
+
+  const handleServerResponse = (message) => {
+    setServerResponse(message);
+    setTimeout(() => {
+      setServerResponse(null);
+    }, 5000); // Adjust the timeout duration as needed (5 seconds in this example)
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      const response = await fetch(`/user/authenticate`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: formData.email,
-          password: formData.password,
-        }),
-      });
-
-      if (response.ok) {
-        const token = await response.text();
-
-        if (token) {
-          localStorage.setItem('authToken', token);
-          navigate.push('/feedspage');
-        } else {
-          console.error('No token found in response:', token);
-          alert('Authentication failed. Please try again.');
-        }
-      } else {
-        console.error('Authentication failed with status:', response.status);
-        alert('Invalid credentials. Please try again.');
-      }
-    } catch (error) {
-      console.error('An error occurred:', error);
+    if (isSubmitting) {
+      // Do nothing if the form is already submitting
+      return;
     }
 
-  };
+    if (validateForm()) {
+      setIsSubmitting(true); // Set isSubmitting to true when the form is submitte
+      try {
+        const response = await fetch(`/user/authenticate`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email: formData.email,
+            password: formData.password,
+          }),
+        });
 
+        if (response.ok) {
+          const token = await response.text();
+
+          if (token) {
+            localStorage.setItem('authToken', token);
+            navigate('/feedspage');
+          } else {
+            console.error('No token found in response:', token);
+            handleServerResponse('Authentication failed. Please try again.');
+          }
+        } else {
+          const errorMessage = await response.text();
+          console.error('Authentication failed with status:', response.status, errorMessage);
+          handleServerResponse(`Server Error: ${errorMessage}`);
+        }
+      } catch (error) {
+        console.error('Network error occurred:', error);
+        handleServerResponse('Network error. Please try again later.');
+      }
+    }
+  };
 
   return (
     <div className="signin-container">
-      <div className="modal-body" id="user-login-form">
-        <h2>Login <span> Here!</span></h2>
-        <form style={{ "margin-top": "15px" }} className="contact-form form-validate3" noValidate="novalidate">
-          <div className="form-group">
-            <label className="text-black-200 h6 font-weight-600 mb-2" htmlFor="userType">User Type*</label>
+      <div className="modal-body">
+        <h2>Login<span> Here!</span></h2>
 
-            <select className=""
-              style={{ "margin-left": "20px" }}
+        {serverResponse && (
+          <div className="alert alert-danger" role="alert">
+            {serverResponse}
+          </div>
+        )}
+
+        <form
+          style={{ marginTop: '15px' }}
+          id="user-login-form"
+          onSubmit={handleSubmit}
+          className="contact-form form-validate3"
+          noValidate="novalidate"
+        >
+          <div className="form-group">
+            <label className="text-black-200 h6 font-weight-600 mb-2" htmlFor="userType">
+              User Type*
+            </label>
+
+            <select
+              className="form-control form-select-sm"
               id="userType"
               name="userType"
               value={formData.userType}
-              onChange={handleChange} required
+              onChange={handleChange}
+              required
             >
               <option value="Admin">Admin</option>
               <option value="Student/Faculty">Student/Faculty</option>
               <option value="Guest">Guest</option>
             </select>
-          </div>          
+            {formErrors.userType && <p className="error text-danger">{formErrors.userType}</p>}
+          </div>
 
           <div className="form-group">
-            <label className="text-black-200 h6 font-weight-600 mb-2" htmlFor="email">Email*</label>
-            <input className="form-control" type="email" name="email" placeholder="Email" value={formData.email} required autoComplete="off" aria-required="true" />
+            <label className="text-black-200 h6 font-weight-600 mb-2" htmlFor="email">
+              Email*
+            </label>
+            <input
+              className="form-control"
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              autoComplete="off"
+              aria-required="true"
+            />
+            {formErrors.email && <p className="error text-danger">{formErrors.email}</p>}
           </div>
 
-          <div class="row my-3">
-            <div class="col-md-6">
+          <div className="row my-3">
+            <div className="col-md-6">
               <div className="form-group">
-                <label className="text-black-200 h6 font-weight-600 mb-2" htmlFor="password">Password*</label>
-                <input type="password" name="password" className="form-control" placeholder="Password" value={formData.password} required autoComplete="off" aria-required="true" />
+                <label className="text-black-200 h6 font-weight-600 mb-2" htmlFor="password">
+                  Password*
+                </label>
+                <input
+                  type="password"
+                  name="password"
+                  className="form-control"
+                  placeholder="Password"
+                  value={formData.password}
+                  onChange={handleChange}
+                  required
+                  autoComplete="off"
+                  aria-required="true"
+                />
+                {formErrors.password && <p className="error text-danger">{formErrors.password}</p>}
               </div>
             </div>
-
           </div>
 
-          <div class="d-flex justify-content-center">
-            <button type="button" class="btn btn-primary" value="login" id="loginBTN" >Login</button>
+          <div className="d-flex justify-content-center">
+            <button type="submit" className="btn btn-primary" value="login" id="loginBTN" disabled={isSubmitting}>
+              {isSubmitting ? 'Logging In...' : 'Login'}
+            </button>
           </div>
-
         </form>
-        <p style={{ "margin-top": "15px" }}>
+        <p style={{ marginTop: '15px' }}>
           Not a user? <a href="/signup">Sign Up</a>
         </p>
         <p>
@@ -112,6 +202,3 @@ const Login = () => {
 };
 
 export default Login;
-
-
-
