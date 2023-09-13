@@ -123,7 +123,9 @@ const Signup = () => {
                     if (response.status === 400) {
                         const data = await response.json();
                         setError(data.error);
-                    } else {
+                    } else if(response.status === 302){
+                        setError('User already exists.');
+                    }else{
                         setError('An error occurred while registering. Please try again later.');
                     }
                 }
