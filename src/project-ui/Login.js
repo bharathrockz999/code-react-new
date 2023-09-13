@@ -5,7 +5,7 @@ import '../project-css/login.css';
 
 const Login = () => {
   const [formData, setFormData] = useState({
-    userType: 'Student',
+    userType: '',
     email: '',
     password: '',
   });
@@ -79,7 +79,8 @@ const Login = () => {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            email: formData.email,
+            userType:formData.userType,
+            username: formData.email,
             password: formData.password,
           }),
         });
