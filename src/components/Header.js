@@ -5,7 +5,7 @@ import './css/style.css'
 import Signup from '../project-ui/Signup';
 import Login from '../project-ui/Login';
 import About from '../project-ui/About';
-import logo from '../project-images/nwmsu-logo.png'
+import logo from '../project-images/nwmsu-logo2.png'
 
 
 class Header extends Component {
@@ -47,12 +47,21 @@ class Header extends Component {
                     <div className="container">
                         <nav className="navbar navbar-default" role="navigation">
                             <div className="navbar-header">
-                                <a className="logo" href="#">
-                                    <img className="img-responsive logo" style={{ "height": "auto", "width": "180px", "margin-right": "10px" }} src={logo} alt="" data-logo-alt={logo} />
-                                </a>                               
+                                <div class = "row">
+                                <div class = "col-md-5">
+                                <a className="" href="#">
+                                    <img className=""  src={logo} alt="" data-logo-alt={logo} />
+                                </a>    
+                                </div>
+                                <div style={{paddingTop: '20px'}} class = "col-md-7 navbar-brand">
+                                <span style={{color: '#007257', fontWeight : 'bold'}} >Professional Based Learning</span>    
+                                </div>  
+                                
+                                </div>                       
                             </div>
+                            
                             <div>
-                            <span className="logo-title" style={{ "font-size": "large", "margin-left": "auto" }}>Professional Based Learning</span>
+                           
                             </div>
 
                             {/* <div className="nav-toggle collapsed" data-toggle="collapse" data-target="#navbarMain" aria-expanded="false" style={{ "top": "15px" }}>
