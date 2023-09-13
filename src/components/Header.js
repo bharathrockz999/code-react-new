@@ -48,12 +48,12 @@ class Header extends Component {
                         <nav className="navbar navbar-default" role="navigation">
                             <div className="navbar-header">
                                 <div class = "row">
-                                <div class = "col-md-5">
+                                <div class = "col-sm-5 col-md-5">
                                 <a className="" href="#">
                                     <img className=""  src={logo} alt="" data-logo-alt={logo} />
                                 </a>    
                                 </div>
-                                <div style={{paddingTop: '20px'}} class = "col-md-7 navbar-brand">
+                                <div style={{paddingTop: '20px'}} class = "col-sm-7 col-md-7 navbar-brand">
                                 <span style={{color: '#007257', fontWeight : 'bold'}} >Professional Based Learning</span>    
                                 </div>  
                                 
