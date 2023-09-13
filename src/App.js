@@ -16,13 +16,8 @@ class App extends Component {
         <BrowserRouter >
           <Header />
           <Routes>
-
-            <Route path="/" element={<Home />}>
-              <Route index element={<Home />} />
-              
-              {/* <Route path="About" element={<About />} /> */}
-
-            </Route>
+            <Route exact path="/Home" element={<Home />} />
+            <Route exact path="/About" element={<About />} />
           </Routes>
         </BrowserRouter >
 

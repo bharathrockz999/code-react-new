@@ -44,7 +44,7 @@ class Header extends Component {
         return (
             <>
                 <header className="header header-animated opaque" style={{ "display": 'block', "paddingTop": "5px", "paddingBottom": "5px" }}>
-                    <div className="container">
+                    <div className="container" style={{ " margin-left": "41px", "width": "1377px" }}>
                         <nav className="navbar navbar-default" role="navigation">
                             <div className="navbar-header">
                                 <div class = "row">
